@@ -197,7 +197,7 @@ The `computed_standard_name` attribute indicates that the values in variable
 [[time-coordinate]]
 === Time Coordinate
 
-Variables representing time must always explicitly include the **`units`** attribute; there is no default value. The **`units`** attribute takes a string value formatted as per the recommendations in the Udunits package <<UDUNITS>>. The following excerpt from the Udunits documentation explains the time unit encoding by example:
+Variables representing time must always explicitly include the **`units`** attribute; there is no default value. The **`units`** attribute takes a string value formatted as per the recommendations in the Udunits package <<UDUNITS>> . The following excerpt from the Udunits documentation explains the time unit encoding by example:
 ----
 
 The specification:
@@ -253,9 +253,9 @@ Optionally, the time coordinate may be indicated additionally by providing the *
 
 [[calendar, Section 4.4.1, "Calendar"]]
 ==== Calendar
-In order to calculate a new date and time given a base date, base time and a time increment one must know what calendar to use. For this purpose we recommend that the calendar be specified by the attribute **`calendar`** which is assigned to the time coordinate variable. The values currently defined for **`calendar`** are:
+In order to calculate a new date and time given a base date, base time, and a time increment, one must know what calendar to use.  For this purpose we recommend that the calendar be specified by the attribute **`calendar`** which is assigned to the time coordinate variable. The values currently defined for **`calendar`** are:
 
-**`gregorian`** or **`standard`**:: Mixed Gregorian/Julian calendar as defined by Udunits. __This is the default.__  To prevent ambiguity, zero and negative year numbers are prohibited in both the reference date/time string, and in encoded time values.
+**`gregorian`** or **`standard`**:: Mixed Gregorian/Julian calendar as defined by Udunits. __This is the default.__  Date/times earlier than 1-1-1 0:0:0 are prohibited.
 
 **`proleptic_gregorian`**:: A Gregorian calendar extended to dates before 1582-10-15. That is, a year is a leap year if either (i) it is divisible by 4 but not by 100 or (ii) it is divisible by 400.
 
@@ -265,11 +265,13 @@ In order to calculate a new date and time given a base date, base time and a tim
 
 **`360_day`**:: All years are 360 days divided into 30 day months.
 
-**`julian`**:: Julian calendar.  To prevent ambiguity, zero and negative year numbers are prohibited in both the reference date/time string, and in encoded time values.
+**`julian`**:: Julian calendar.  Date/times earlier than 1-1-1 0:0:0 are prohibited.
 
 **`none`**:: No calendar.
 
 
+
+Some calendars have a restricted time range, as noted, to avoid multiple interpretations.  These restrictions apply to both the reference date/time string, and to encoded time values. 
 
 The **`calendar`** attribute may be set to **`none`** in climate experiments that simulate a fixed time of year. The time of year is indicated by the date in the reference date/time of the **`units`** attribute. The time coordinate that might apply in a perpetual July experiment are given in the following example.
 
