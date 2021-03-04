@@ -253,7 +253,7 @@ Optionally, the time coordinate may be indicated additionally by providing the *
 
 [[calendar, Section 4.4.1, "Calendar"]]
 ==== Calendar
-In order to calculate a new date and time given a base date, base time, and a time increment, one must know what calendar to use.  For this purpose we recommend that the calendar be specified by the attribute **`calendar`** which is assigned to the time coordinate variable. The values currently defined for **`calendar`** are:
+In order to calculate a new date and time given a base date, base time and a time increment one must know what calendar to use. For this purpose we recommend that the calendar be specified by the attribute **`calendar`** which is assigned to the time coordinate variable. The values currently defined for **`calendar`** are:
 
 **`gregorian`** or **`standard`**:: Mixed Gregorian/Julian calendar as defined by Udunits. __This is the default.__  Date/times earlier than 1-1-1 0:0:0 are prohibited.
 
